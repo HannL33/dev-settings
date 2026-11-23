@@ -1,0 +1,71 @@
+{
+  "markdown_preview": {
+    "heading_font_weight": 550.0,
+    "font_size": 16.0
+  },
+  "diff_view_style": "unified",
+  "icon_theme": "Material Icon Theme",
+  "ui_font_weight": 400.0,
+  "buffer_font_weight": 400.0,
+  "terminal": {
+    "font_weight": 450.0
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "max_severity": "all"
+    }
+  },
+  "agent_ui_font_size": 18.0,
+  "agent_buffer_font_size": 15.0,
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "openai-subscribed",
+      "model": "gpt-6.2-sol",
+      "enable_thinking": true,
+      "effort": "high"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "default_config_options": {
+        "reasoning_effort": "high",
+        "model": "gpt-6.1-sol",
+        "collaboration_mode": "plan",
+        "mode": "workspace-write"
+      },
+      "type": "registry"
+    }
+  },
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true,
+  "format_on_save": "on",
+  "wrap_guides": [100],
+  "soft_wrap": "bounded",
+  "preferred_line_length": 100,
+  "auto_install_extensions": {
+    "python": true,
+    "rust": true,
+    "ruff": true,
+    "toml": true
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 500
+    }
+  },
+  "ui_font_size": 15.0,
+  "buffer_font_size": 16.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark"
+  }
+}

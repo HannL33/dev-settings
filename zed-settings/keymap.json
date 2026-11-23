@@ -1,0 +1,26 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-space": "editor::ShowSignatureHelp",
+      "f19": "workspace::ToggleCenteredLayout",
+      "f20": "workspace::ToggleZoom"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-k z": ["workspace::SendKeystrokes", "f19 f20"],
+      "cmd-:": ["action::Sequence", ["editor::ToggleInlayHints", "editor::ToggleDiagnostics"]],
+      "cmd-shift-;": [
+        "action::Sequence",
+        ["editor::ToggleInlayHints", "editor::ToggleDiagnostics"]
+      ],
+      "ctrl-:": ["action::Sequence", ["editor::ToggleInlayHints", "editor::ToggleDiagnostics"]],
+      "ctrl-shift-;": [
+        "action::Sequence",
+        ["editor::ToggleInlayHints", "editor::ToggleDiagnostics"]
+      ]
+    }
+  }
+]
