@@ -1,6 +1,6 @@
 ---
 name: python-standards
-description: Write or change Python application or library code with explicit data, direct functions, readable modules, and a small diff. Use for Python implementation, refactoring, and API or data-model changes.
+description: Implement or refactor Python production code, including API and data-model changes. Prefer explicit data, direct functions, and readable modules. For test-only work or a dedicated review, use python-testing or python-review respectively.
 ---
 
 # Python standards

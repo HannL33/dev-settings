@@ -11,6 +11,7 @@
 ## Code and scope
 
 - Before editing, check `git status --short` when applicable. Read the affected code, relevant callers, and tests. Search for an existing operation before adding one. Preserve unrelated user work and keep the diff focused.
+- Only create branches, commit, amend, rebase, push, or force-push when the user explicitly requests the operation. Ask for confirmation before destructive or irreversible Git operations unless the user has already approved the operation and its scope.
 - When the user points out a problem, identify the specific behavior they mean and fix it where it occurs. Preserve other agreed decisions. If an existing function fits and the issue is how its result is handled, keep using the function and fix the call site.
 - Change the approach only when a concrete limitation makes a local fix insufficient. Before broadening the change, state that limitation and explain why the local fix cannot address it.
 - Start with explicit data and plain functions. Keep I/O and orchestration at the edges, with rules that can run on data directly. Use a class when it owns cohesive state, enforces an invariant, or serves a real framework contract. Keep each operation easy to follow from its caller.
@@ -34,4 +35,4 @@ Review the final diff against the request. In the handoff, name the checks and r
 
 ## Task-specific guidance
 
-For Python edits, read [.agents/skills/python-standards/SKILL.md](.agents/skills/python-standards/SKILL.md). For test design, regression reproduction, or test debugging, also use [python-testing](.agents/skills/python-testing/SKILL.md). Use [python-review](.agents/skills/python-review/SKILL.md) for a requested review or a dedicated review of a substantial diff.
+For Python implementation or refactoring, use [python-standards](.agents/skills/python-standards/SKILL.md). For test design, regression reproduction, or test debugging, use [python-testing](.agents/skills/python-testing/SKILL.md). Use both when a task includes production changes and test work. Use [python-review](.agents/skills/python-review/SKILL.md) for a requested review or a dedicated review of a substantial diff.

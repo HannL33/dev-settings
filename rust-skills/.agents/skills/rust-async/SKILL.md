@@ -1,11 +1,11 @@
 ---
 name: rust-async
-description: Change or review Rust async execution, task lifetimes, cancellation, shared state across awaits, deadlines, retries, and shutdown. Use when the change affects these behaviors in the project's existing runtime.
+description: Change or review Rust async behavior, including task lifetimes, cancellation, state shared across awaits, deadlines, retries, and shutdown. Use with rust-review for async reviews. General Rust implementation guidance is in rust-standards.
 ---
 
 # Rust async
 
-Read `rust-standards`. Use the project's runtime and verify the semantics of its installed version. Keep a sequential operation synchronous when callers and workload permit.
+For implementation, also use `rust-standards`. Use the project's runtime and verify the semantics of its installed version. Keep a sequential operation synchronous when callers and workload permit.
 
 - Keep blocking I/O and expensive CPU work off runtime worker threads. Bound blocking work when load can grow. In Tokio, an already running `spawn_blocking` closure keeps running after abort, so design its stopping condition separately when needed.
 - Await related operations in the caller when possible. Spawn when work needs a separate task. Give spawned work an owner that observes completion, errors, and panics. Choose fail-fast, drain-all, or partial success according to the contract. Bound concurrent work and queue capacity where inputs can accumulate.

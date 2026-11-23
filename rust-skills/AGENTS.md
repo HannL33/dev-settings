@@ -12,8 +12,8 @@
 ## Code and scope
 
 - Before editing, check `git status --short` when applicable. Read the affected code, relevant callers, and tests. Search for an existing operation before adding one. Preserve unrelated user work and keep the diff focused.
+- Only create branches, commit, amend, rebase, push, or force-push when the user explicitly requests the operation. Ask for confirmation before destructive or irreversible Git operations unless the user has already approved the operation and its scope.
 - When the user points out a problem, identify the specific behavior they mean and fix it where it occurs. Preserve other agreed decisions. If an existing function fits and the issue is how its result is handled, keep using the function and fix the call site.
-  For example, if the caller establishes that `offset(...)` returns `Some`, keep the call and use `expect` with a message that names the condition guaranteeing that the resulting coordinates are on the board. Keep handling `None` where it is a valid outcome.
 - Change the approach only when a concrete limitation makes a local fix insufficient. Before broadening the change, state that limitation and explain why the local fix cannot address it.
 - Start with structs, enums, and direct functions. Use inherent methods for behavior tied to a type. Keep I/O at the edges where practical. Prefer concrete types and straightforward ownership. Add traits, generic bounds, or shared state for a present need you can describe.
 - Organize by feature or concept. Keep helpers near their users and use the narrowest useful visibility. Preserve existing contracts, including errors, stored data, feature behavior, and side effects.
@@ -38,4 +38,4 @@ Review the final diff against the request. In the handoff, name the checks and r
 
 ## Task-specific guidance
 
-For Rust edits, read [.agents/skills/rust-standards/SKILL.md](.agents/skills/rust-standards/SKILL.md). For tests or regression reproduction, also use [rust-testing](.agents/skills/rust-testing/SKILL.md). Use [rust-async](.agents/skills/rust-async/SKILL.md) for changes to async tasks, cancellation, or async shared state. Use [rust-review](.agents/skills/rust-review/SKILL.md) for a requested review or a dedicated review of a substantial diff.
+For Rust implementation or refactoring, use [rust-standards](.agents/skills/rust-standards/SKILL.md). For test design, regression reproduction, or test debugging, use [rust-testing](.agents/skills/rust-testing/SKILL.md). Use both when a task includes production changes and test work. Use [rust-async](.agents/skills/rust-async/SKILL.md) when a change or review involves async execution, task lifetimes, cancellation, or state shared across awaits. Use [rust-review](.agents/skills/rust-review/SKILL.md) for a requested review or a dedicated review of a substantial diff.

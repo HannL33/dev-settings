@@ -1,11 +1,11 @@
 ---
 name: rust-testing
-description: Design, reproduce, or debug Rust tests using the project's harness. Use for regression tests, new behavior, failing tests, doctests, fixtures, and test doubles.
+description: Design or debug Rust tests with the project's existing harness. Use for regression reproduction, coverage of changed behavior, doctests, fixtures, and test doubles. Use rust-standards for any accompanying production code changes.
 ---
 
 # Rust testing
 
-Follow `AGENTS.md` and `rust-standards`. Use the repo's existing runner and helpers.
+Follow `AGENTS.md`. Use the repo's existing runner and helpers.
 
 - For a bug fix, reproduce through the narrowest meaningful entry point. When feasible, show the regression test failing on the old behavior and passing with the fix. Confirm that the failure is the reported bug. If the environment prevents reproduction, state the gap.
 - Test observable results, error variants, and relevant side effects. Prefer one behavior per test with as many assertions as it needs. Use table-driven cases for meaningful variants. Assert panic behavior or error wording only when the contract includes it.

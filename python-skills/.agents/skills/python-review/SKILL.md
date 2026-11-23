@@ -1,6 +1,6 @@
 ---
 name: python-review
-description: Review a Python diff, branch, pull request, or named files for actionable defects and regressions. Use for an explicit review or a dedicated review of a substantial change.
+description: Review a Python diff, branch, pull request, or named files for actionable defects and regressions. Use for an explicit review or a dedicated review of a substantial diff. Use python-standards when applying production fixes.
 ---
 
 # Python review

@@ -1,6 +1,6 @@
 ---
 name: rust-review
-description: Review a Rust diff, branch, pull request, or named files for actionable defects and regressions. Use for an explicit review or a dedicated review of a substantial change.
+description: Review a Rust diff, branch, pull request, or named files for actionable defects and regressions. Use for an explicit review or a dedicated review of a substantial diff. Use rust-standards when applying production fixes.
 ---
 
 # Rust review

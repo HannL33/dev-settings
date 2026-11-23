@@ -1,6 +1,6 @@
 ---
 name: rust-standards
-description: Write or change Rust application or library code with explicit data, direct control flow, straightforward ownership, and a small diff. Use for Rust implementation, refactoring, API design, or Cargo changes that affect code.
+description: Implement or refactor Rust production code, including API design and Cargo changes that affect code. Prefer direct control flow and straightforward ownership. For test-only work or a dedicated review, use rust-testing or rust-review respectively.
 ---
 
 # Rust standards

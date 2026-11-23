@@ -1,11 +1,11 @@
 ---
 name: python-testing
-description: Design, reproduce, or debug Python tests using the project's test harness. Use for regression tests, new behavior, failing tests, fixtures, and test doubles.
+description: Design or debug Python tests with the project's existing harness. Use for regression reproduction, coverage of changed behavior, fixtures, and test doubles. Use python-standards for any accompanying production code changes.
 ---
 
 # Python testing
 
-Follow `AGENTS.md` and `python-standards`. Use the repo's existing runner and helpers. The examples here assume pytest where configured.
+Follow `AGENTS.md`. Use the repo's existing runner and helpers. The examples here assume pytest where configured.
 
 - For a bug fix, reproduce through the narrowest meaningful entry point. When feasible, show the regression test failing on the old behavior and passing with the fix. Confirm the initial failure comes from the bug. If the environment prevents reproduction, state the gap.
 - Test the observable contract with inputs that distinguish correct from broken behavior. Check the returned value, error, or relevant side effect. Prefer one behavior per test with as many assertions as that behavior needs. Use parametrization for meaningful variants of the same behavior.
