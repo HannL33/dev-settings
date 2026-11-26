@@ -7,14 +7,6 @@
 #  Reload with Option-Shift-C after editing this file.
 # =============================================================================
 
-# Reload SketchyBar at startup so workspace indicators can query AeroSpace.
-after-startup-command = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
-
-# Tell SketchyBar which workspace to highlight after each switch.
-exec-on-workspace-change = ['/bin/bash', '-c',
-    '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
-
 # Start AeroSpace at login.
 start-at-login = true
 
@@ -25,9 +17,9 @@ automatically-unhide-macos-hidden-apps = true
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'  # Use a horizontal layout on wide screens.
 
-# Move the cursor after keyboard focus changes and sync the status bar.
+# Move the cursor after keyboard focus changes.
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center', 'exec-and-forget /bin/bash "$HOME/.config/aerospace/sync-sketchybar.sh"']
+on-focus-changed = ['move-mouse window-lazy-center']
 
 # Normalize the window tree.
 enable-normalization-flatten-containers = true
@@ -39,7 +31,7 @@ inner.horizontal = 12
 inner.vertical   = 12
 outer.left       = 12
 outer.bottom     = 12
-outer.top        = 46      # 34px SketchyBar plus 12px spacing.
+outer.top        = 12
 outer.right      = 12
 
 # =============================================================================
@@ -66,8 +58,8 @@ alt-shift-l = 'move right'
 alt-slash = 'layout tiles horizontal vertical'
 # Toggle horizontal or vertical accordion layout.
 alt-comma = 'layout accordion horizontal vertical'
-# Fill the current workspace and update SketchyBar for the focused window.
-alt-f = ['fullscreen --no-outer-gaps', 'exec-and-forget /bin/bash "$HOME/.config/aerospace/sync-sketchybar.sh"']
+# Fill the current workspace without outer gaps.
+alt-f = 'fullscreen --no-outer-gaps'
 
 # Resize the focused window.
 alt-minus = 'resize smart -50'
