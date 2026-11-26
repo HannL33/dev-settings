@@ -1,0 +1,135 @@
+# =============================================================================
+#  AeroSpace configuration
+#  File: ~/.aerospace.toml
+#  Documentation: https://nikitabobko.github.io/AeroSpace/guide
+#
+#  Main modifier: alt is Option (⌥).
+#  Reload with Option-Shift-C after editing this file.
+# =============================================================================
+
+# Reload SketchyBar at startup so workspace indicators can query AeroSpace.
+after-startup-command = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
+
+# Tell SketchyBar which workspace to highlight after each switch.
+exec-on-workspace-change = ['/bin/bash', '-c',
+    '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+# Start AeroSpace at login.
+start-at-login = true
+
+# Unhide apps automatically to prevent gaps in the layout.
+automatically-unhide-macos-hidden-apps = true
+
+# --- Tiling layout --------------------------------------------------------
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'  # Use a horizontal layout on wide screens.
+
+# Move the cursor after keyboard focus changes and sync the status bar.
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center', 'exec-and-forget /bin/bash "$HOME/.config/aerospace/sync-sketchybar.sh"']
+
+# Normalize the window tree.
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# --- Window gaps in pixels ------------------------------------------------
+[gaps]
+inner.horizontal = 12
+inner.vertical   = 12
+outer.left       = 12
+outer.bottom     = 12
+outer.top        = 46      # 34px SketchyBar plus 12px spacing.
+outer.right      = 12
+
+# =============================================================================
+#  Main key bindings
+# =============================================================================
+[mode.main.binding]
+
+# Open a new Ghostty instance.
+alt-enter = "exec-and-forget open -na Ghostty"
+
+# Move focus between windows with Vim keys.
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows within the layout.
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Toggle horizontal or vertical tiling.
+alt-slash = 'layout tiles horizontal vertical'
+# Toggle horizontal or vertical accordion layout.
+alt-comma = 'layout accordion horizontal vertical'
+# Fill the current workspace and update SketchyBar for the focused window.
+alt-f = ['fullscreen --no-outer-gaps', 'exec-and-forget /bin/bash "$HOME/.config/aerospace/sync-sketchybar.sh"']
+
+# Resize the focused window.
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+
+# Switch workspaces.
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+# Move the focused window to a workspace and follow it.
+alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
+
+# Switch to the previously focused workspace.
+alt-tab = 'workspace-back-and-forth'
+
+# Reload the configuration.
+alt-shift-c = 'reload-config'
+
+# Enter service mode.
+alt-shift-semicolon = 'mode service'
+
+# =============================================================================
+#  Service mode. Enter with Option-Shift-; and leave with Escape.
+# =============================================================================
+[mode.service.binding]
+esc = ['reload-config', 'mode main']           # Reload and return to main mode.
+r = ['flatten-workspace-tree', 'mode main']    # Flatten the workspace tree.
+f = ['layout floating tiling', 'mode main']    # Toggle floating or tiling.
+backspace = ['close-all-windows-but-current', 'mode main']  # Close the other windows.
+
+# Join windows into one container.
+alt-shift-h = ['join-with left',  'mode main']
+alt-shift-j = ['join-with down',  'mode main']
+alt-shift-k = ['join-with up',    'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+# =============================================================================
+#  Keep the following applications floating.
+# =============================================================================
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'
