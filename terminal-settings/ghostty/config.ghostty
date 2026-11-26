@@ -1,0 +1,32 @@
+# =============================================================================
+#  Ghostty terminal configuration inspired by Omarchy
+#  File: ~/.config/ghostty/config.ghostty
+#  Documentation: https://ghostty.org/docs/config
+# =============================================================================
+
+# Start fish when opening a terminal.
+command = /opt/homebrew/bin/fish
+
+# Detect fish automatically and enable shell integration.
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Load the color theme from the themes directory.
+theme = "Everforest Dark Medium"
+
+# Minimal window style inspired by foot. JankyBorders draws the border.
+window-decoration = false
+# Keep text flush with the window edges.
+window-padding-x = 0
+window-padding-y = 0
+# Use a steady block cursor.
+cursor-style = block
+cursor-style-blink = false
+
+# Use a Nerd Font for file and directory icons in eza.
+font-family = "JetBrainsMono Nerd Font"
+font-size = 22
+
+# Quake-style quick terminal. Option-Space works across workspaces once
+# Ghostty has macOS Accessibility permission.
+keybind = global:alt+space=toggle_quick_terminal
